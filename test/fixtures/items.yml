@@ -2,16 +2,16 @@
 
 one:
   name: MyString
-  categories: one
-  description: MyString
-  image: MyString
-  price: 1
-  stock: false
+  price: 9.99
+  stock: 1
+  category: 
+  animal: 
+  size: 
 
 two:
   name: MyString
-  categories: two
-  description: MyString
-  image: MyString
-  price: 1
-  stock: false
+  price: 9.99
+  stock: 1
+  category: 
+  animal: 
+  size: 
