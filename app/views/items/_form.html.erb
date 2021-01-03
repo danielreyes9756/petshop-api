@@ -1,0 +1,70 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.number_field :stock %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.number_field :category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Select category:" %>
+    <div class="row">
+      <% @categories.each do |category| %>
+        <label class="col-6 col-sm-auto">
+        <%= category.title %>
+        <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Select animal:" %>
+    <div class="row">
+      <% @animals.each do |animal| %>
+        <label class="col-6 col-sm-auto">
+        <%= animal.title %>
+        <%= form.check_box :animal_elements, {multiple: true}, animal.id, nil %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="field">
+    <%= form.label "Select size:" %>
+    <div class="row">
+      <% @sizes.each do |size| %>
+        <label class="col-6 col-sm-auto">
+        <%= size.title %>
+        <%= form.check_box :size_elements, {multiple: true}, size.id, nil %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
