@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "sizes#new"
+  root to: "home#index"
   devise_for :users
   resources :sizes
   resources :animals
