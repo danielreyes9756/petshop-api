@@ -22,22 +22,26 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @categories = Category.all
+    @animals = Animal.all
+    @sizes = Size.all
   end
 
   # POST /items
   # POST /items.json
   def create
     @item = Item.new(item_params)
-   
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
+        @item.save_info
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
-    end
+    end 
   end
 
   # PATCH/PUT /items/1
@@ -47,6 +51,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
+        @item.save_info
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -72,6 +77,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :price, :stock, :category_id)
+      params.require(:item).permit(:name, :description, :price, :stock, category_elements: [],  animal_elements: [],  size_elements: [])
     end
 end

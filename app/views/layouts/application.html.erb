@@ -12,6 +12,18 @@
   </head>
 
   <body>
+    
+    <nav class="nav bg-dark">
+      <li class="nav-item">
+        <%= link_to "Categories", categories_path, class:"nav-link"%>
+      </li>
+    </nav>
+    <% if notice %>
+      <p class="notice alert-primary"><%= notice %></p>
+    <%end%>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>
