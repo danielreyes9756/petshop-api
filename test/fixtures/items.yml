@@ -2,16 +2,12 @@
 
 one:
   name: MyString
+  description: MyString
   price: 9.99
   stock: 1
-  category: 
-  animal: 
-  size: 
 
 two:
   name: MyString
+  description: MyString
   price: 9.99
   stock: 1
-  category: 
-  animal: 
-  size: 

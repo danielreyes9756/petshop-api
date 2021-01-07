@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
   <strong>Price:</strong>
   <%= @item.price %>
 </p>
@@ -15,20 +20,24 @@
   <%= @item.stock %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @item.category_id %>
-</p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @item.animal %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @item.size %>
-</p>
+<div class="margin-top">
+  <p class="label"> Tags </p>
+  <% @item.categories.each do |category| %>
+    <span class="badge badge-pill" style="background-color: <%= category.color %>"> 
+      <%= link_to category.title, category, class:"text-white"%>
+    </span>
+  <% end %>
+  <% @item.animals.each do |animal| %>
+    <span class="badge badge-pill" style="background-color: <%= animal.color %>"> 
+      <%= link_to animal.title, animal, class:"text-white"%>
+    </span>
+  <% end %> 
+  <% @item.sizes.each do |size| %>
+    <span class="badge badge-pill" style="background-color: <%= size.color %>"> 
+      <%= link_to size.title, size, class:"text-white"%>
+    </span>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

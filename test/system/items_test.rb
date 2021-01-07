@@ -14,11 +14,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "New Item"
 
-    fill_in "Animal", with: @item.animal
-    fill_in "Category", with: @item.category
+    fill_in "Description", with: @item.description
     fill_in "Name", with: @item.name
     fill_in "Price", with: @item.price
-    fill_in "Size", with: @item.size
     fill_in "Stock", with: @item.stock
     click_on "Create Item"
 
@@ -30,11 +28,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "Edit", match: :first
 
-    fill_in "Animal", with: @item.animal
-    fill_in "Category", with: @item.category
+    fill_in "Description", with: @item.description
     fill_in "Name", with: @item.name
     fill_in "Price", with: @item.price
-    fill_in "Size", with: @item.size
     fill_in "Stock", with: @item.stock
     click_on "Update Item"
 
