@@ -19,7 +19,7 @@
     }
     input{
         @extend .form-control;
-        @extend .bg-light;
+        font-size: 18px;
     }
     input[type='checkbox']{
         display: inline-block;
@@ -36,5 +36,24 @@
     }
     a:hover {
         color:indigo;
+    }
+}
+
+footer{
+    .w3-third{
+        font-size: 20px;
+    }
+    position: relative;
+    bottom: 0;
+
+    .w3-left{
+        width: 75px;
+    }
+}
+
+.container{
+    margin-top: 3em;
+    .btn {
+        margin-top: 1em;
     }
 }

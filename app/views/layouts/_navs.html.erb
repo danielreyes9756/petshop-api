@@ -1,0 +1,30 @@
+<nav class="nav bg-dark">
+    <li class="nav-item">
+        <%= link_to "DoubleD", root_path, class:"nav-link"%>
+    </li>
+    <%if current_user %>
+        <%if current_user.admin %>
+            <li class="nav-item">
+                <%= link_to "Add Animal", new_animal_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Add Category", new_category_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Add Size", new_size_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Add Item", new_item_path, class:"nav-link"%>
+            </li>
+        <%end%>
+        <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </li>
+    <%end%>
+</nav>
+<% if notice %>
+    <p class="notice alert-primary"><%= notice %></p>
+<%end%>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<%end%>
