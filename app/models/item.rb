@@ -14,6 +14,14 @@ class Item < ApplicationRecord
     validates :animal_elements: [], presence: true
     validates :size_elements: [], presence: true
 
+    validates :name, presence: true, length: { in: 4..30 }, format: { with: /\A(\w+\s*\w+)+\z/, message: "Not symbols"}, uniqueness: true
+    validates :description, presence: true, length: { in: 2..280 }, format: { with: /\A(\w+\s*\w+)+\z/, message: "Not symbols"}
+    validates :price, presence: true, numericality: { greater_than: 1 }
+    validates :stock, presence: true, numericality: { greater_than: 0, only_interger: true }
+    validates :category_elements, presence: true
+    validates :animal_elements, presence: true
+    validates :size_elements, presence: true
+
     def save_info
         save_categories
         save_animals
@@ -44,5 +52,4 @@ class Item < ApplicationRecord
         end
     end
 
-    
 end
