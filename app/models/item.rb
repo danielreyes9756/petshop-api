@@ -6,6 +6,13 @@ class Item < ApplicationRecord
     has_many :animals, through: :animal_items
     has_many :sizes, through: :size_items
     attr_accessor :category_elements, :animal_elements, :size_elements
+    validates :name, presence: true
+    validates :description, presence: true
+    validates :price, presence: true
+    validates :stock, presence: true
+    validates :category_elements: [], presence: true
+    validates :animal_elements: [], presence: true
+    validates :size_elements: [], presence: true
 
     def save_info
         save_categories
