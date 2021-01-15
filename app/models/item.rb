@@ -6,13 +6,14 @@ class Item < ApplicationRecord
     has_many :animals, through: :animal_items
     has_many :sizes, through: :size_items
     attr_accessor :category_elements, :animal_elements, :size_elements
-    validates :name, presence: true
-    validates :description, presence: true
-    validates :price, presence: true
-    validates :stock, presence: true
-    validates :category_elements: [], presence: true
-    validates :animal_elements: [], presence: true
-    validates :size_elements: [], presence: true
+
+    validates :name, presence: true, length: { in: 4..30 }, format: { with: /\A(\w+\s*\w+)+\z/, message: "Not symbols"}, uniqueness: true
+    validates :description, presence: true, length: { in: 2..280 }, format: { with: /\A(\w+\s*\w+)+\z/, message: "Not symbols"}
+    validates :price, presence: true, numericality: { greater_than: 1 }
+    validates :stock, presence: true, numericality: { greater_than: 0, only_interger: true }
+    validates :category_elements, presence: true
+    validates :animal_elements, presence: true
+    validates :size_elements, presence: true
 
     def save_info
         save_categories
@@ -44,5 +45,4 @@ class Item < ApplicationRecord
         end
     end
 
-    
 end
