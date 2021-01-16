@@ -13,6 +13,9 @@ class CategoriesController < ApplicationController
     @CategoryItem = CategoryItem.where("category_id = ?", params[:id])
   end
 
+  def json_url
+    render json: Category.all
+  end
   # GET /categories/new
   def new
     @category = Category.new
