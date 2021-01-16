@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @animal.title %>
+</p>
+<%= image_tag url_for(@animal.banner) %>
+<p>
+  <strong>Color:</strong>
+  <%= @animal.color %>
+</p>
+
+<%= link_to 'Edit', edit_animal_path(@animal) %> |
+<%= link_to 'Back', animals_path %>
