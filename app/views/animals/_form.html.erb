@@ -20,14 +20,10 @@
     <%= form.label :color %>
     <%= form.color_field :color %>
   </div>
-  
+
   <div class="field">
     <%= form.label :image %>
-    <div class="custom-file">
-      <%= form.file_field :banner, :class => "custom-file-input", :id => "inputGroupFile02"%>
-      <label class="custom-file-label" for="inputGroupFile02">Choose file...</label>
-      <div class="invalid-feedback">Example invalid custom file feedback</div>
-    </div>
+    <%= form.file_field :banner %>
   </div>
   
 
@@ -36,10 +32,3 @@
     <%= link_to 'Cancel', animals_path, :class => "btn btn-secondary btn-lg btn-block" %>
   </div>
 <% end %>
-
-<script>
-  $('#inputGroupFile02').on('change',function(){
-    var fileName = $(this).val();
-    $(this).next('.custom-file-label').html(fileName);
-  })
-</script>

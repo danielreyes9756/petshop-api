@@ -13,6 +13,10 @@ class SizesController < ApplicationController
     @SizeItem = SizeItem.where("size_id = ?", params[:id])
   end
 
+  def json_url
+    render json: Size.all
+  end
+
   # GET /sizes/new
   def new
     @size = Size.new

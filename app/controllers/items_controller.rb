@@ -12,6 +12,13 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def json_url
+    @items = Item.all.with_attached_image
+    render json: @items.map { |item|
+      item.as_json.merge({ image: url_for(item.image)})
+    }
+  end
+
   # GET /items/new
   def new
     @item = Item.new
@@ -62,6 +69,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @item.image.destroy
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
@@ -77,6 +85,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :description, :price, :stock, category_elements: [],  animal_elements: [],  size_elements: [])
+      params.require(:item).permit(:name, :description, :price, :stock, :image, category_elements: [],  animal_elements: [],  size_elements: [])
     end
 end
