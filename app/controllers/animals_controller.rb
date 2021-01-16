@@ -18,6 +18,13 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
   end
 
+  def json_url
+    @animal = Animal.all.with_attached_banner
+    render json: @animal.map { |animal|
+      animal.as_json.merge({ banner: url_for(animal.banner) })
+    }
+  end
+
   # GET /animals/1/edit
   def edit
   end

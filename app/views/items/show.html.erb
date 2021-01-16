@@ -3,7 +3,9 @@
     <div class="margin-top">
       <h3 class="text-uppercase"><%= @item.name %></h3>
       <hr/>
-  
+      <div>
+        <%= image_tag url_for(@item.image), :style => "height:auto; width:300px;" %>
+      </div>
       <p>
         <label><strong>Description:</strong></label><br>
         <%= @item.description %>
@@ -44,5 +46,3 @@
     </div>  
   </div>  
 </div>
-
-
