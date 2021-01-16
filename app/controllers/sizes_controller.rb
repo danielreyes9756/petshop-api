@@ -10,7 +10,6 @@ class SizesController < ApplicationController
   # GET /sizes/1
   # GET /sizes/1.json
   def show
-    @SizeItem = SizeItem.where("size_id = ?", params[:id])
   end
 
   # GET /sizes/new

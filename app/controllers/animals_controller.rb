@@ -10,7 +10,6 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
-    @AnimalItem = AnimalItem.where("animal_id = ?", params[:id])
   end
 
   # GET /animals/new
