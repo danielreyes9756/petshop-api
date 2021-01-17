@@ -1,34 +1,51 @@
-<nav class="nav bg-dark">
-    <li class="nav-item">
-        <%= link_to "DoubleD", root_path, class:"nav-link"%>
-    </li>
+<div class="topnav" id="myTopnav">
+    <%= link_to "DoubleD", root_path, class:"active"%>
+  
     <%if current_user %>
         <% if current_user.admin %>
-            <li class="nav-item">
+
                 <%= link_to "Add Animal", new_animal_path, class:"nav-link"%>
-            </li>
-            <li class="nav-item">
+            
+            
                 <%= link_to "Add Category", new_category_path, class:"nav-link"%>
-            </li>
-            <li class="nav-item">
+           
+            
                 <%= link_to "Add Size", new_size_path, class:"nav-link"%>
-            </li>
-            <li class="nav-item">
+            
+            
                 <%= link_to "Add Item", new_item_path, class:"nav-link"%>
-            </li>
+    
         <%end%>
-        <li class="nav-item">
+        
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
-        </li>
+        
     <%else%>
-        <li class="nav-item">
+        
             <%= link_to "Sign up", new_user_registration_path, class:"nav-link"%>
-        </li>
-        <li class="nav-item">
+        
+        
             <%= link_to "Sign in", user_session_path, class:"nav-link"%>
-        </li>
+        
     <%end%>
-</nav>
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
 <% if notice %>
     <p class="notice alert-primary"><%= notice %></p>
 <%end%>
