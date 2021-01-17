@@ -3,7 +3,7 @@
         <%= link_to "DoubleD", root_path, class:"nav-link"%>
     </li>
     <%if current_user %>
-        <%if current_user.admin %>
+        <% if current_user.admin %>
             <li class="nav-item">
                 <%= link_to "Add Animal", new_animal_path, class:"nav-link"%>
             </li>

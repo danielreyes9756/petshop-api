@@ -1,5 +1,7 @@
-<div class="container">
-    <h1>New Item</h1>
+<% if current_user && current_user.admin %>
+    <div class="container">
+        <h1>New Item</h1>
 
-    <%= render 'form', item: @item %>
-</div>
+        <%= render 'form', item: @item %>
+    </div>
+<%end%>

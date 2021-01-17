@@ -15,7 +15,11 @@ class ItemsController < ApplicationController
   def json_url
     @items = Item.all.with_attached_image
     render json: @items.map { |item|
-      item.as_json.merge({ image: url_for(item.image)})
+      @categories = Category.where(id: CategoryItem.where(item_id: item.id).select('category_id'))
+      @animals = Animal.where(id: AnimalItem.where(item_id: item.id).select('animal_id'))
+      @sizes = Size.where(id: SizeItem.where(item_id: item.id).select('size_id'))
+      item.as_json.merge({ image: url_for(item.image), 
+      categories: @categories, animals: @animals, sizes: @sizes})  
     }
   end
 
