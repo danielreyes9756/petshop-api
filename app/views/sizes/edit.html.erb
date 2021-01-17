@@ -1,5 +1,7 @@
-<div class="container">
-    <h1>Editing Size</h1>
+<% if current_user && current_user.admin %>
+    <div class="container">
+        <h1>Editing Size</h1>
 
-    <%= render 'form', size: @size %>
-</div>
+        <%= render 'form', size: @size %>
+    </div>
+<%end%>
